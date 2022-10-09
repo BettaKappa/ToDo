@@ -10,7 +10,7 @@
 
         static void Arrow()
         {
-            int position = 0;
+            int position = 1;
             var key = Console.ReadKey();
             while (key.Key != ConsoleKey.Enter)
             {
@@ -39,17 +39,20 @@
         {
             switch (position)
             {
-                case 0:
+                case 1:
                     Notes();
                     break;
-                case 1:
+                case 2:
                     Guide();
                     break;
             }
         }
         static void Damn()
         {
-            Console.WriteLine(" " + " " + "Записи" + "\n" +
+            Console.WriteLine(".................." +
+                              "Меню" +
+                              ".................." + "\n" +
+                              " " + " " + "Записи" + "\n" +
                               " " + " " + "Инструкция");
         }
 
