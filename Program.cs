@@ -61,7 +61,7 @@ namespace ToDo
                     {
                         case 1:
                             Console.Clear();
-                            Console.WriteLine("я заебалась");
+                            Console.WriteLine("я устала");
                             break;
                         case 2:
                             Console.Clear();
