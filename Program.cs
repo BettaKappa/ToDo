@@ -36,6 +36,9 @@ namespace ToDo
                     case RightArrow:
                         DAY ++;
                         break;
+                    case Escape:
+                        Environment.Exit(0);
+                        break;
                 }
                 Clear();
 
