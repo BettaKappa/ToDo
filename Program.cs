@@ -1,5 +1,6 @@
-﻿using System.Data.SqlTypes;
-using System.Runtime.InteropServices;
+﻿using static System.Console;
+using static System.ConsoleKey;
+using static System.ConsoleColor;
 
 namespace ToDo
 {
@@ -7,32 +8,32 @@ namespace ToDo
     {
         static void Main()
         {
-            Console.WriteLine("Для запуска программы нажмите Пробел");
+            WriteLine("Для запуска программы нажмите Пробел");
             Arrow(0);
         }
 
         static void Arrow(int DAY)
         {
             int position = 1;
-            var key = Console.ReadKey();
-            while (key.Key != ConsoleKey.Enter)
+            var key = ReadKey();
+            while (key.Key != Enter)
             {
                 switch (key.Key)
                 {
-                    case ConsoleKey.UpArrow:
+                    case UpArrow:
                         position--;
                         break;
-                    case ConsoleKey.DownArrow:
+                    case DownArrow:
                         position++;
                         break;
-                    case ConsoleKey.LeftArrow:
+                    case LeftArrow:
                         DAY --;
                         break;
-                    case ConsoleKey.RightArrow:
+                    case RightArrow:
                         DAY ++;
                         break;
                 }
-                Console.Clear();
+                Clear();
 
                 switch(DAY)
                 {
@@ -47,10 +48,10 @@ namespace ToDo
                         break;
                 }
 
-                Console.SetCursorPosition(0, position); 
-                Console.WriteLine("->");
+                SetCursorPosition(0, position); 
+                WriteLine("->");
 
-                key = Console.ReadKey();
+                key = ReadKey();
             }
             Switch(position, DAY);
         }
@@ -62,18 +63,18 @@ namespace ToDo
                     switch (position)
                     {
                         case 1:
-                            Console.Clear();
-                            Console.WriteLine(".................." + "Сходить на пары" + "..................");
-                            Console.WriteLine("я устала");
+                            Clear();
+                            WriteLine(".................." + "Сходить на пары" + "..................");
+                            WriteLine("я устала");
                             DateTime date = new(2022, 10, 15);
-                            Console.WriteLine("----------" + "\n" + date.ToLongDateString());
+                            WriteLine("----------" + "\n" + date.ToLongDateString());
                             break;
                         case 2:
-                            Console.Clear();
-                            Console.WriteLine(".................." + "Поехать к родителям" + "..................");
-                            Console.WriteLine("Надо постараться выехать до 17:00, иначе поздно приеду");
+                            Clear();
+                            WriteLine(".................." + "Поехать к родителям" + "..................");
+                            WriteLine("Надо постараться выехать до 17:00, иначе поздно приеду");
                             DateTime date1 = new(2022, 10, 15);
-                            Console.WriteLine("----------" + "\n" + date1.ToLongDateString());
+                            WriteLine("----------" + "\n" + date1.ToLongDateString());
                             break;
                     }
                     break;
@@ -81,18 +82,18 @@ namespace ToDo
                     switch (position)
                     {
                         case 1:
-                            Console.Clear();
-                            Console.WriteLine(".................." + "Выспаться" + "..................");
-                            Console.WriteLine("Ахахахаха конечно");
+                            Clear();
+                            WriteLine(".................." + "Выспаться" + "..................");
+                            WriteLine("Ахахахаха конечно");
                             DateTime date = new(2022, 10, 16);
-                            Console.WriteLine("----------" + "\n" + date.ToLongDateString());
+                            WriteLine("----------" + "\n" + date.ToLongDateString());
                             break;
                         case 2:
-                            Console.Clear();
-                            Console.WriteLine(".................." + "Переделать этот код" + "..................");
-                            Console.WriteLine("Так как этот мне очень ненравится");
+                            Clear();
+                            WriteLine(".................." + "Переделать этот код" + "..................");
+                            WriteLine("Так как этот мне очень ненравится");
                             DateTime date1 = new(2022, 10, 16);
-                            Console.WriteLine("----------" + "\n" + date1.ToLongDateString());
+                            WriteLine("----------" + "\n" + date1.ToLongDateString());
                             break;
                     }
                     break;
@@ -100,31 +101,31 @@ namespace ToDo
                     switch (position)
                     {
                         case 1:
-                            Console.Clear();
-                            Console.WriteLine(".................." + "Что-нибудь придумаю" + "..................");
-                            Console.WriteLine("Или нет");
+                            Clear();
+                            WriteLine(".................." + "Что-нибудь придумаю" + "..................");
+                            WriteLine("Или нет");
                             DateTime date = new(2022, 10, 14);
-                            Console.WriteLine("----------" + "\n" + date.ToLongDateString());
+                            WriteLine("----------" + "\n" + date.ToLongDateString());
                             break;
                     }
                     break;
             }
 
-            Console.ReadKey();
+            ReadKey();
             Arrow(0);
 
         }
         static void Day0()
         {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Green;
+            Clear();
+            ForegroundColor = Green;
             DateTime date = new(2022, 10, 15);
-            Console.WriteLine(".................." + date.ToLongDateString() + "..................");
+            WriteLine(".................." + date.ToLongDateString() + "..................");
 
             List<string> notes = new() {"Сходить на пары", "Поехать к родителям" };
             foreach (var note in notes)
             {
-                Console.WriteLine("  " + note);
+                WriteLine("  " + note);
             }
 
             //Add(notes);
@@ -132,28 +133,28 @@ namespace ToDo
         }
         static void Day1()
         {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Clear();
+            ForegroundColor = Yellow;
             DateTime date = new(2022, 10, 16);
-            Console.WriteLine(".................." + date.ToLongDateString() + "..................");
+            WriteLine(".................." + date.ToLongDateString() + "..................");
 
             List<string> notes = new() { "Выспаться", "Переделать этот код" };
             foreach (var note in notes)
             {
-                Console.WriteLine("  " + note);
+                WriteLine("  " + note);
             }
         }
         static void Day_1()
         {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red;
+            Clear();
+            ForegroundColor = DarkCyan;
             DateTime date = new(2022, 10, 14);
-            Console.WriteLine(".................." + date.ToLongDateString() + "..................");
+            WriteLine(".................." + date.ToLongDateString() + "..................");
 
             List<string> notes = new() {"Что-нибудь придумаю"};
             foreach (var note in notes)
             {
-                Console.WriteLine("  " + note);
+                WriteLine("  " + note);
             }
         }
 
@@ -167,12 +168,12 @@ namespace ToDo
 
         private static void Add(List<string> notes)
         {
-            var key = Console.ReadKey();
-            Console.Clear();
+            var key = ReadKey();
+            Clear();
             switch (key.Key)
             {
-                case ConsoleKey.OemPlus:
-                    var newNote = Console.ReadLine();
+                case OemPlus:
+                    var newNote = ReadLine();
                     if (newNote != null) notes.Add(newNote);
                     break;
             }
