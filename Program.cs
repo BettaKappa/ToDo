@@ -67,60 +67,73 @@ namespace ToDo
             switch (DAY)
             {
                 case 0:
-                    switch (position)
-                    {
-                        case 1:
-                            Clear();
-                            WriteLine(".................." + "Сходить на пары" + "..................");
-                            WriteLine("я устала");
-                            DateTime date = new(2022, 10, 15);
-                            WriteLine("----------" + "\n" + date.ToLongDateString());
-                            break;
-                        case 2:
-                            Clear();
-                            WriteLine(".................." + "Поехать к родителям" + "..................");
-                            WriteLine("Надо постараться выехать до 17:00, иначе поздно приеду");
-                            DateTime date1 = new(2022, 10, 15);
-                            WriteLine("----------" + "\n" + date1.ToLongDateString());
-                            break;
-                    }
+                    DAY0(position);
                     break;
                 case 1:
-                    switch (position)
-                    {
-                        case 1:
-                            Clear();
-                            WriteLine(".................." + "Выспаться" + "..................");
-                            WriteLine("Ахахахаха конечно");
-                            DateTime date = new(2022, 10, 16);
-                            WriteLine("----------" + "\n" + date.ToLongDateString());
-                            break;
-                        case 2:
-                            Clear();
-                            WriteLine(".................." + "Переделать этот код" + "..................");
-                            WriteLine("Так как этот мне очень ненравится");
-                            DateTime date1 = new(2022, 10, 16);
-                            WriteLine("----------" + "\n" + date1.ToLongDateString());
-                            break;
-                    }
+                    DAY1(position);
                     break;
                 case -1:
-                    switch (position)
-                    {
-                        case 1:
-                            Clear();
-                            WriteLine(".................." + "Что-нибудь придумаю" + "..................");
-                            WriteLine("Или нет");
-                            DateTime date = new(2022, 10, 14);
-                            WriteLine("----------" + "\n" + date.ToLongDateString());
-                            break;
-                    }
+                    DAY_1(position);
                     break;
             }
-            
             ReadKey();
             Arrow(0);
+        }
 
+        private static void DAY_1(int position)
+        {
+            switch (position)
+            {
+                case 1:
+                    Clear();
+                    WriteLine(".................." + "Что-нибудь придумаю" + "..................");
+                    WriteLine("Или нет");
+                    DateTime date = new(2022, 10, 14);
+                    WriteLine("----------" + "\n" + date.ToLongDateString());
+                    break;
+            }
+        }
+
+        private static void DAY1(int position)
+        {
+            switch (position)
+            {
+                case 1:
+                    Clear();
+                    WriteLine(".................." + "Выспаться" + "..................");
+                    WriteLine("Ахахахаха конечно");
+                    DateTime date = new(2022, 10, 16);
+                    WriteLine("----------" + "\n" + date.ToLongDateString());
+                    break;
+                case 2:
+                    Clear();
+                    WriteLine(".................." + "Переделать этот код" + "..................");
+                    WriteLine("Так как этот мне очень ненравится");
+                    DateTime date1 = new(2022, 10, 16);
+                    WriteLine("----------" + "\n" + date1.ToLongDateString());
+                    break;
+            }
+        }
+
+        private static void DAY0(int position)
+        {
+            switch (position)
+            {
+                case 1:
+                    Clear();
+                    WriteLine(".................." + "Сходить на пары" + "..................");
+                    WriteLine("я устала");
+                    DateTime date = new(2022, 10, 15);
+                    WriteLine("----------" + "\n" + date.ToLongDateString());
+                    break;
+                case 2:
+                    Clear();
+                    WriteLine(".................." + "Поехать к родителям" + "..................");
+                    WriteLine("Надо постараться выехать до 17:00, иначе поздно приеду");
+                    DateTime date1 = new(2022, 10, 15);
+                    WriteLine("----------" + "\n" + date1.ToLongDateString());
+                    break;
+            }
         }
         static void Day0()
         {
@@ -134,9 +147,6 @@ namespace ToDo
             {
                 WriteLine("  " + note);
             }
-
-            //Add(notes);
-
         }
         static void Day1()
         {
@@ -157,32 +167,10 @@ namespace ToDo
             ForegroundColor = DarkCyan;
             DateTime date = new(2022, 10, 14);
             WriteLine(".................." + date.ToLongDateString() + "..................");
-
-            List<string> notes = new() {"Что-нибудь придумаю"};
+            List<string> notes = new() { "Что-нибудь придумаю" };
             foreach (var note in notes)
             {
                 WriteLine("  " + note);
-            }
-        }
-
-
-
-
-
-
-
-
-
-        private static void Add(List<string> notes)
-        {
-            var key = ReadKey();
-            Clear();
-            switch (key.Key)
-            {
-                case OemPlus:
-                    var newNote = ReadLine();
-                    if (newNote != null) notes.Add(newNote);
-                    break;
             }
         }
     }
