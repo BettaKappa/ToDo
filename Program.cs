@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlTypes;
+using System.Runtime.InteropServices;
 
 namespace ToDo
 {
@@ -45,7 +46,8 @@ namespace ToDo
                         Day_1();
                         break;
                 }
-                Console.SetCursorPosition(0, position);
+
+                Console.SetCursorPosition(0, position); 
                 Console.WriteLine("->");
 
                 key = Console.ReadKey();
@@ -61,11 +63,17 @@ namespace ToDo
                     {
                         case 1:
                             Console.Clear();
+                            Console.WriteLine(".................." + "Сходить на пары" + "..................");
                             Console.WriteLine("я устала");
+                            DateTime date = new(2022, 10, 15);
+                            Console.WriteLine("----------" + "\n" + date.ToLongDateString());
                             break;
                         case 2:
                             Console.Clear();
+                            Console.WriteLine(".................." + "Поехать к родителям" + "..................");
                             Console.WriteLine("Надо постараться выехать до 17:00, иначе поздно приеду");
+                            DateTime date1 = new(2022, 10, 15);
+                            Console.WriteLine("----------" + "\n" + date1.ToLongDateString());
                             break;
                     }
                     break;
@@ -74,7 +82,10 @@ namespace ToDo
                     {
                         case 1:
                             Console.Clear();
+                            Console.WriteLine(".................." + "Выспаться" + "..................");
                             Console.WriteLine("Ахахахаха конечно");
+                            DateTime date = new(2022, 10, 16);
+                            Console.WriteLine("----------" + "\n" + date.ToLongDateString());
                             break;
                     }
                     break;
@@ -83,7 +94,10 @@ namespace ToDo
                     {
                         case 1:
                             Console.Clear();
+                            Console.WriteLine(".................." + "Что-нибудь придумаю" + "..................");
                             Console.WriteLine("Или нет");
+                            DateTime date = new(2022, 10, 14);
+                            Console.WriteLine("----------" + "\n" + date.ToLongDateString());
                             break;
                     }
                     break;
@@ -96,6 +110,7 @@ namespace ToDo
         static void Day0()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
             DateTime date = new(2022, 10, 15);
             Console.WriteLine(".................." + date.ToLongDateString() + "..................");
 
@@ -111,6 +126,7 @@ namespace ToDo
         static void Day1()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
             DateTime date = new(2022, 10, 16);
             Console.WriteLine(".................." + date.ToLongDateString() + "..................");
 
@@ -123,6 +139,7 @@ namespace ToDo
         static void Day_1()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
             DateTime date = new(2022, 10, 14);
             Console.WriteLine(".................." + date.ToLongDateString() + "..................");
 
@@ -132,6 +149,14 @@ namespace ToDo
                 Console.WriteLine("  " + note);
             }
         }
+
+
+
+
+
+
+
+
 
         private static void Add(List<string> notes)
         {
