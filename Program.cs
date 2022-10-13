@@ -87,6 +87,13 @@ namespace ToDo
                             DateTime date = new(2022, 10, 16);
                             Console.WriteLine("----------" + "\n" + date.ToLongDateString());
                             break;
+                        case 2:
+                            Console.Clear();
+                            Console.WriteLine(".................." + "Переделать этот код" + "..................");
+                            Console.WriteLine("Так как этот мне очень ненравится");
+                            DateTime date1 = new(2022, 10, 16);
+                            Console.WriteLine("----------" + "\n" + date1.ToLongDateString());
+                            break;
                     }
                     break;
                 case -1:
@@ -130,7 +137,7 @@ namespace ToDo
             DateTime date = new(2022, 10, 16);
             Console.WriteLine(".................." + date.ToLongDateString() + "..................");
 
-            List<string> notes = new() { "Выспаться" };
+            List<string> notes = new() { "Выспаться", "Переделать этот код" };
             foreach (var note in notes)
             {
                 Console.WriteLine("  " + note);
