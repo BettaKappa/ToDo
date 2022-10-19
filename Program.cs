@@ -1,23 +1,69 @@
-﻿using static System.Console;
+﻿using Microsoft.VisualBasic;
+using static System.Console;
 using static System.ConsoleKey;
 using static System.ConsoleColor;
 
-namespace ToDo
+namespace ToD0
 {
     internal class Program
     {
         static void Main()
         {
-            BackgroundColor = DarkGreen;
-            ForegroundColor = DarkRed;
-            WriteLine( "\r\n .----------------.  .----------------.  .----------------.  .-----------------. .-----------------. .----------------.  .----------------. \r\n| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |\r\n| |   ______     | || |   _____      | || |      __      | || | ____  _____  | || | ____  _____  | || |  _________   | || |  _______     | |\r\n| |  |_   __ \\   | || |  |_   _|     | || |     /  \\     | || ||_   \\|_   _| | || ||_   \\|_   _| | || | |_   ___  |  | || | |_   __ \\    | |\r\n| |    | |__) |  | || |    | |       | || |    / /\\ \\    | || |  |   \\ | |   | || |  |   \\ | |   | || |   | |_  \\_|  | || |   | |__) |   | |\r\n| |    |  ___/   | || |    | |   _   | || |   / ____ \\   | || |  | |\\ \\| |   | || |  | |\\ \\| |   | || |   |  _|  _   | || |   |  __ /    | |\r\n| |   _| |_      | || |   _| |__/ |  | || | _/ /    \\ \\_ | || | _| |_\\   |_  | || | _| |_\\   |_  | || |  _| |___/ |  | || |  _| |  \\ \\_  | |\r\n| |  |_____|     | || |  |________|  | || ||____|  |____|| || ||_____|\\____| | || ||_____|\\____| | || | |_________|  | || | |____| |___| | |\r\n| |              | || |              | || |              | || |              | || |              | || |              | || |              | |\r\n| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |\r\n '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' \r\n");
-            BackgroundColor = Black;
-            WriteLine("\t" + "\t" + "\t" + "\t" + "\t" + "ДЛЯ ЗАПУСКА ПРОГРАММЫ НАЖМИТЕ ПРОБЕЛ");
-            Arrow(0);
+            WriteLine("Нажмите пробел");
+            Arrow();
         }
-
-        static void Arrow(int DAY)
+        public static void Arrow()
         {
+            Note note1 = new()
+            {
+                Name = "A",
+                Description = "AA",
+                EndDate = new DateTime(2022, 10, 14),
+                Position = 2
+            };
+
+            Note note2 = new()
+            {
+                Name = "B",
+                Description = "BB",
+                EndDate = new DateTime(2022, 10, 16),
+                Position = 2
+            };
+
+            Note note3 = new()
+            {
+                Name = "C",
+                Description = "CC",
+                EndDate = new DateTime(2022, 10, 16),
+                Position = 3
+            };
+
+            Note note4 = new()
+            {
+                Name = "D",
+                Description = "DD",
+                EndDate = new DateTime(2022, 10, 15),
+                Position = 2
+            };
+
+            Note note5 = new()
+            {
+                Name = "E",
+                Description = "EE",
+                EndDate = new DateTime(2022, 10, 15),
+                Position = 3
+            };
+
+            List<Note> allNotes = new()
+            {
+                note1,
+                note2,
+                note3,
+                note4,
+                note5
+            };
+
+            DateTime dayNow = new (2022, 10, 15);
             int position = 1;
             var key = ReadKey();
             while (key.Key != Enter)
@@ -31,147 +77,49 @@ namespace ToDo
                         position++;
                         break;
                     case LeftArrow:
-                        DAY --;
+                        dayNow = dayNow.AddDays(-1);
                         break;
                     case RightArrow:
-                        DAY ++;
+                        dayNow = dayNow.AddDays(1);
                         break;
                     case Escape:
                         Environment.Exit(0);
                         break;
                 }
+
                 Clear();
 
-                switch(DAY)
-                {
-                    case 0:
-                        Day0();
-                        break;
-                    case 1:
-                        Day1();
-                        break;
-                    case -1:
-                        Day_1();
-                        break;
-                }
+                ShowDate(dayNow, allNotes);
 
-                SetCursorPosition(0, position); 
+                SetCursorPosition(0, position);
                 WriteLine("->");
 
                 key = ReadKey();
             }
-            Switch(position, DAY);
-        }
-        static void Switch(int position, int DAY)
-        {
-            switch (DAY)
-            {
-                case 0:
-                    DAY0(position);
-                    break;
-                case 1:
-                    DAY1(position);
-                    break;
-                case -1:
-                    DAY_1(position);
-                    break;
-            }
-            ReadKey();
-            Arrow(0);
-        }
 
-        private static void DAY_1(int position)
-        {
-            switch (position)
-            {
-                case 1:
-                    Clear();
-                    WriteLine(".................." + "Что-нибудь придумаю" + "..................");
-                    WriteLine("Или нет");
-                    DateTime date = new(2022, 10, 14);
-                    WriteLine("----------" + "\n" + date.ToLongDateString());
-                    break;
-            }
-        }
-
-        private static void DAY1(int position)
-        {
-            switch (position)
-            {
-                case 1:
-                    Clear();
-                    WriteLine(".................." + "Выспаться" + "..................");
-                    WriteLine("Ахахахаха конечно");
-                    DateTime date = new(2022, 10, 16);
-                    WriteLine("----------" + "\n" + date.ToLongDateString());
-                    break;
-                case 2:
-                    Clear();
-                    WriteLine(".................." + "Переделать этот код" + "..................");
-                    WriteLine("Так как этот мне очень ненравится");
-                    DateTime date1 = new(2022, 10, 16);
-                    WriteLine("----------" + "\n" + date1.ToLongDateString());
-                    break;
-            }
-        }
-
-        private static void DAY0(int position)
-        {
-            switch (position)
-            {
-                case 1:
-                    Clear();
-                    WriteLine(".................." + "Сходить на пары" + "..................");
-                    WriteLine("я устала");
-                    DateTime date = new(2022, 10, 15);
-                    WriteLine("----------" + "\n" + date.ToLongDateString());
-                    break;
-                case 2:
-                    Clear();
-                    WriteLine(".................." + "Поехать к родителям" + "..................");
-                    WriteLine("Надо постараться выехать до 17:00, иначе поздно приеду");
-                    DateTime date1 = new(2022, 10, 15);
-                    WriteLine("----------" + "\n" + date1.ToLongDateString());
-                    break;
-            }
-        }
-        static void Day0()
-        {
             Clear();
-            ForegroundColor = Green;
-            DateTime date = new(2022, 10, 15);
-            WriteLine(".................." + date.ToLongDateString() + "..................");
 
-            List<string> notes = new() {"Сходить на пары", "Поехать к родителям" };
-            foreach (var note in notes)
-            {
-                WriteLine("  " + note);
-            }
+            ShowInfo(position, dayNow, allNotes);
         }
-        static void Day1()
+
+        private static void ShowInfo(int position, DateTime date, List<Note> myNotes)
         {
-            Clear();
-            ForegroundColor = Yellow;
-            DateTime date = new(2022, 10, 16);
-            WriteLine(".................." + date.ToLongDateString() + "..................");
-
-            List<string> notes = new() { "Выспаться", "Переделать этот код" };
-            foreach (var note in notes)
-            {
-                WriteLine("  " + note);
-            }
+            List<Note> sortedNotes = myNotes.OrderBy(note => note.EndDate == date).ThenBy(note1 => note1.Position == position).ToList();
+            WriteLine(sortedNotes[position].Name);
         }
-        static void Day_1()
+
+        private static void ShowDate(DateTime date, List<Note> myNotes)
         {
             Clear();
             ForegroundColor = DarkCyan;
-            DateTime date = new(2022, 10, 14);
             WriteLine(".................." + date.ToLongDateString() + "..................");
-            List<string> notes = new() { "Что-нибудь придумаю" };
-            foreach (var note in notes)
+
+            List<Note> sortedNotes = myNotes.Where(note => note.EndDate == date).ToList();
+            foreach (Note note in sortedNotes)
             {
-                WriteLine("  " + note);
+                    Console.WriteLine("  " + note.Name);
             }
         }
+
     }
 }
