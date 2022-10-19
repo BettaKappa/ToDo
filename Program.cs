@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using static System.Console;
+﻿using static System.Console;
 using static System.ConsoleKey;
 using static System.ConsoleColor;
 
@@ -18,40 +17,35 @@ namespace ToD0
             {
                 Name = "A",
                 Description = "AA",
-                EndDate = new DateTime(2022, 10, 14),
-                Position = 2
+                EndDate = new DateTime(2022, 10, 14)
             };
 
             Note note2 = new()
             {
                 Name = "B",
                 Description = "BB",
-                EndDate = new DateTime(2022, 10, 16),
-                Position = 2
+                EndDate = new DateTime(2022, 10, 16)
             };
 
             Note note3 = new()
             {
                 Name = "C",
                 Description = "CC",
-                EndDate = new DateTime(2022, 10, 16),
-                Position = 3
+                EndDate = new DateTime(2022, 10, 16)
             };
 
             Note note4 = new()
             {
                 Name = "D",
                 Description = "DD",
-                EndDate = new DateTime(2022, 10, 15),
-                Position = 2
+                EndDate = new DateTime(2022, 10, 15)
             };
 
             Note note5 = new()
             {
                 Name = "E",
                 Description = "EE",
-                EndDate = new DateTime(2022, 10, 15),
-                Position = 3
+                EndDate = new DateTime(2022, 10, 15)
             };
 
             List<Note> allNotes = new()
@@ -98,28 +92,31 @@ namespace ToD0
             }
 
             Clear();
-
             ShowInfo(position, dayNow, allNotes);
+            Arrow();
         }
 
         private static void ShowInfo(int position, DateTime date, List<Note> myNotes)
         {
-            List<Note> sortedNotes = myNotes.OrderBy(note => note.EndDate == date).ThenBy(note1 => note1.Position == position).ToList();
-            WriteLine(sortedNotes[position].Name);
+            List<Note> sortedNotes = myNotes.Where(note => note.EndDate.Date == date.Date).ToList();
+            WriteLine(sortedNotes[position - 1].Name +
+                      "\t" + "|" + "\t" + 
+                      sortedNotes[position - 1].EndDate.Date + "\n" +
+                      "-----------------------------------" + "\n" + "\n" +
+                      sortedNotes[position - 1].Description);
         }
 
-        private static void ShowDate(DateTime date, List<Note> myNotes)
+        private static void ShowDate(DateTime date, List<Note> myNotes )
         {
             Clear();
             ForegroundColor = DarkCyan;
             WriteLine(".................." + date.ToLongDateString() + "..................");
 
-            List<Note> sortedNotes = myNotes.Where(note => note.EndDate == date).ToList();
+            List<Note> sortedNotes = myNotes.Where(note => note.EndDate.Date == date.Date).ToList();
             foreach (Note note in sortedNotes)
             {
-                    Console.WriteLine("  " + note.Name);
+                    WriteLine("  " + note.Name);
             }
-        }
-
+        }   
     }
 }
