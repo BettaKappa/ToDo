@@ -8,43 +8,45 @@ namespace ToD0
     {
         static void Main()
         {
-            WriteLine("Нажмите пробел");
+            ForegroundColor = DarkCyan;
+            WriteLine("\r\n               ,--,                                                                       \r\n,-.----.    ,---.'|                             ,--.          ,--.                        \r\n\\    /  \\   |   | :       ,---,               ,--.'|        ,--.'|     ,---,. ,-.----.    \r\n|   :    \\  :   : |      '  .' \\          ,--,:  : |    ,--,:  : |   ,'  .' | \\    /  \\   \r\n|   |  .\\ : |   ' :     /  ;    '.     ,`--.'`|  ' : ,`--.'`|  ' : ,---.'   | ;   :    \\  \r\n.   :  |: | ;   ; '    :  :       \\    |   :  :  | | |   :  :  | | |   |   .' |   | .\\ :  \r\n|   |   \\ : '   | |__  :  |   /\\   \\   :   |   \\ | : :   |   \\ | : :   :  |-, .   : |: |  \r\n|   : .   / |   | :.'| |  :  ' ;.   :  |   : '  '; | |   : '  '; | :   |  ;/| |   |  \\ :  \r\n;   | |`-'  '   :    ; |  |  ;/  \\   \\ '   ' ;.    ; '   ' ;.    ; |   :   .' |   : .  /  \r\n|   | ;     |   |  ./  '  :  | \\  \\ ,' |   | | \\   | |   | | \\   | |   |  |-, ;   | |  \\  \r\n:   ' |     ;   : ;    |  |  '  '--'   '   : |  ; .' '   : |  ; .' '   :  ;/| |   | ;\\  \\ \r\n:   : :     |   ,/     |  :  :         |   | '`--'   |   | '`--'   |   |    \\ :   ' | \\.' \r\n|   | :     '---'      |  | ,'         '   : |       '   : |       |   :   .' :   : :-'   \r\n`---'.|                `--''           ;   |.'       ;   |.'       |   | ,'   |   |.'     \r\n  `---`                                '---'         '---'         `----'     `---'       \r\n                                                                                          \r\n");
+            WriteLine("\t" + "\t" + "\t" + "ДЛЯ ЗАПУСКА ПРОГРАММЫ НАЖМИТЕ ПРОБЕЛ");
             Arrow();
         }
         public static void Arrow()
         {
             Note note1 = new()
             {
-                Name = "A",
-                Description = "AA",
+                Name = "Что-нибудь придумаю",
+                Description = "Или нет",
                 EndDate = new DateTime(2022, 10, 14)
             };
 
             Note note2 = new()
             {
-                Name = "B",
-                Description = "BB",
+                Name = "Выспаться",
+                Description = "Ахахахаха конечно",
                 EndDate = new DateTime(2022, 10, 16)
             };
 
             Note note3 = new()
             {
-                Name = "C",
-                Description = "CC",
+                Name = "Сходить на пары",
+                Description = "Не заснуть на БЖД",
                 EndDate = new DateTime(2022, 10, 16)
             };
 
             Note note4 = new()
             {
-                Name = "D",
-                Description = "DD",
+                Name = "Сходить на пары",
+                Description = "Я обязательно выживу",
                 EndDate = new DateTime(2022, 10, 15)
             };
 
             Note note5 = new()
             {
-                Name = "E",
-                Description = "EE",
+                Name = "Поехать к родакам",
+                Description = "Хоть бы без пробок",
                 EndDate = new DateTime(2022, 10, 15)
             };
 
@@ -77,6 +79,8 @@ namespace ToD0
                         dayNow = dayNow.AddDays(1);
                         break;
                     case Escape:
+                        Clear();
+                        WriteLine("\r\n ____  _  _  ____ \r\n(  _ \\( \\/ )( ___)\r\n ) _ < \\  /  )__) \r\n(____/ (__) (____)\r\n");
                         Environment.Exit(0);
                         break;
                 }
@@ -102,8 +106,8 @@ namespace ToD0
             WriteLine(sortedNotes[position - 1].Name +
                       "\t" + "|" + "\t" + 
                       sortedNotes[position - 1].EndDate.Date + "\n" +
-                      "-----------------------------------" + "\n" + "\n" +
-                      sortedNotes[position - 1].Description);
+                      "------------------------------------------------" + "\n" + "\n" +
+                      " " + sortedNotes[position - 1].Description);
         }
 
         private static void ShowDate(DateTime date, List<Note> myNotes )
